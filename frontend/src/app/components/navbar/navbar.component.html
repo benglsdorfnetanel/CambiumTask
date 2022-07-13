@@ -1,0 +1,8 @@
+<p-tabView (onChange)="updataText()">
+    <p-tabPanel header="Save">
+        <app-save></app-save>
+     </p-tabPanel>
+     <p-tabPanel header="Load">
+        <app-load [text]="loadText | async"></app-load>
+     </p-tabPanel>
+</p-tabView>
