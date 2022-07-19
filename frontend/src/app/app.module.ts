@@ -1,28 +1,37 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
+import { AppComponent } from './app.component';
+import { SaveComponent } from './components/save/save.component';
+import { IsReadyComponent } from './components/is-ready/is-ready.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import {MenubarModule} from 'primeng/menubar';
-import {TabViewModule} from 'primeng/tabview';
-import {EditorModule} from 'primeng/editor';
-import { SaveComponent } from './components/save/save.component';
-import { LoadComponent } from './components/load/load.component';
-import { HttpClientModule } from '@angular/common/http';
+
+import { MenubarModule } from 'primeng/menubar';
+import { TabViewModule } from 'primeng/tabview';
+import { EditorModule } from 'primeng/editor';
+import { PasswordModule } from 'primeng/password';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputTextModule } from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     SaveComponent,
-    LoadComponent,
+    IsReadyComponent,
   ],
   imports: [
+    DialogModule,
+    ButtonModule,
+    InputTextModule,
+    InputTextareaModule,
+    PasswordModule,
     BrowserModule,
     MenubarModule,
     TabViewModule,

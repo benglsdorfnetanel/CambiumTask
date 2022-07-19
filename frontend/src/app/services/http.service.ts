@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Subscription, take } from 'rxjs';
+import { map, Observable, Subscription, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,17 +16,12 @@ export class HttpService implements OnDestroy {
     this.url = "http://localhost:3000/copypaste";
    }
 
-  sendText(text:String){
-    this.subscriptions = this.http.post(this.url,{text}).subscribe();
+  sendSubmit(text:{}):Observable<any>{
+    return this.http.post(this.url,text);
   }
   
-  getText(): Promise<Object>{
-    return new Promise((resolve,reject) => {
-      this.subscriptions = this.http.get(this.url).pipe(take(1)).subscribe(data => {
-        console.log("data",data);
-        resolve(data);
-      });
-    })
+  getData(id:string): Observable<any>{
+    return this.http.get(`${this.url}/${id}`);
   }
 
   ngOnDestroy(){
