@@ -2,13 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
-//import {CopypasteModel} from '../../models/copypaste';
 
 @Component({
   selector: 'app-is-ready',
   templateUrl: './is-ready.component.html',
   styleUrls: ['./is-ready.component.css']
 })
+
 export class IsReadyComponent implements OnInit, OnDestroy {
 
   response$!:Observable<any>;
@@ -22,6 +22,7 @@ export class IsReadyComponent implements OnInit, OnDestroy {
   private subscriptions = new Subscription();
 
   constructor(private route: ActivatedRoute,private http: HttpService) { }
+
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
