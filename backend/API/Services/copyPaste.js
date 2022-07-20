@@ -1,13 +1,17 @@
-var fs = require('fs');
+//var fs = require('fs');
+const db = require('../Database/localdb');
+const localdb = new db();
+
 module.exports ={
-    writeText(text){
-        fs.writeFileSync(`${__dirname}/../../cambium/test.txt`, text ,(err)=>{
-            if(err) console.log("err",err);
+    writeToDB(params){
+        return new Promise((resolve, reject) => {
+            localdb.setToLocalDB(params,resolve,reject);
+        });
+
+    },
+    LoadFromLocalDB(params){
+        return new Promise((resolve, reject) => {
+            localdb.LoadFromLocalDB(params,resolve,reject);
         });
     },
-    readText(){
-        return fs.readFileSync(`${__dirname}/../../cambium/test.txt`,(err)=>{
-            if(err) console.log("err",err);
-        });
-    }
 }

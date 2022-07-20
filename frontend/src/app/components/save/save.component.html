@@ -1,3 +1,33 @@
 <div>
-    <p-editor [(ngModel)]="text" [style]="{'height':'200px'}" (ngModelChange)="onChangeText()"></p-editor>
+    <div class="p-fluid grid">
+        <div class="field col-20 md:col-4">
+            <span class="p-field">
+                <label for="inputtext">Title</label>
+                <input type="text" id="inputtext" pInputText [(ngModel)]="title"> 
+            </span>
+        </div>
+        <div class="field col-20 md:col-4">
+            <span class="p-field">
+                <label for="textarea">Textarea</label>
+                <p-editor [(ngModel)]="textarea" [style]="{'height':'150px'}"></p-editor>
+            </span>
+        </div>
+        <div class="grid p-fluid">
+            <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                    <input [(ngModel)]="password" type="password" pInputText placeholder="Password">         
+                    <button type="button" pButton pRipple label="Submit" (click)="onSubmit()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<p-dialog header="Header" [(visible)]="display" [header]="header" onHide="afterSubmit()" [style]="{width: '50vw'}">
+    <ng-template pTemplate="content">
+        <p>{{dialogString}}</p>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button (click)="afterSubmit()" label="Move To Link" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>

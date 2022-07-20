@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -6,13 +8,36 @@ import { HttpService } from 'src/app/services/http.service';
   templateUrl: './save.component.html',
   styleUrls: ['./save.component.css']
 })
-export class SaveComponent {
+export class SaveComponent implements OnDestroy {
 
-  text!:String;
-  constructor(private httpService: HttpService) { }
+  title!: String;
+  textarea!: String;
+  password!: String;
+  display!: Boolean;
+  respones!: any;
+  dialogString: string = `sumbit not happened`;
+  link!: String;
+  header: string = '';
 
-  onChangeText(){
-    this.httpService.sendText(this.text);
+  private subscriptions = new Subscription();
+
+
+  constructor(private httpService: HttpService, private router: Router) { }
+
+  onSubmit() {
+    this.subscriptions = this.httpService.sendSubmit({ title: this.title, body: this.textarea, password: this.password }).subscribe(data => {
+      this.dialogString = `Hi Cambium, you paste is ready in: http://localhost:4200/copypaste/${data?.id}`;
+      this.link = `/copypaste/${data?.id}`;
+    })
+    this.display = true;
+  }
+
+  afterSubmit() {
+    this.router.navigate([this.link]);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
 }
