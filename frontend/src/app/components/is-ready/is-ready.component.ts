@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
-//import {CopypasteModel} from '../../models/copypaste';
 
 @Component({
   selector: 'app-is-ready',
