@@ -9,7 +9,7 @@
         <div class="field col-20 md:col-4">
             <span class="p-field">
                 <label for="textarea">Textarea</label>
-                <p-editor [(ngModel)]="textarea" [style]="{'height':'150px'}"></p-editor>
+                <app-editor (updateTextArea)="updateTextArea($event)" [body]="textarea" [readonly]="false"></app-editor>
             </span>
         </div>
         <div class="grid p-fluid">

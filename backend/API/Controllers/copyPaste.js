@@ -27,7 +27,6 @@ module.exports = {
                 res.status(500).json({ error: 'message' })
                 res.end();
             } else {
-                console.log("response",response)
                 res.json(response)
                 res.end();
             }

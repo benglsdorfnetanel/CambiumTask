@@ -36,6 +36,10 @@ export class SaveComponent implements OnDestroy {
     this.router.navigate([this.link]);
   }
 
+  updateTextArea(text: String){
+    this.textarea = text;
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }

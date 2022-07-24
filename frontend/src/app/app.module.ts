@@ -18,6 +18,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
+import { EditorComponent } from './components/editor/editor.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {DialogModule} from 'primeng/dialog';
     AppComponent,
     SaveComponent,
     IsReadyComponent,
+    EditorComponent
   ],
   imports: [
     DialogModule,

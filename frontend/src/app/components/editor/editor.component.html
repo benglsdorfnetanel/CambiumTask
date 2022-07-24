@@ -1,0 +1,4 @@
+<p-editor [(ngModel)]="body" [readonly]="readonly" [style]="style" (ngModelChange)="updateChanges()">
+    <ng-template *ngIf="readonly===true" pTemplate="header">
+    </ng-template>
+</p-editor>
