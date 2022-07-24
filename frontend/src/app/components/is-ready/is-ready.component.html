@@ -2,10 +2,7 @@
     <div class="content-section implementation p-fluid">
         <div class="card">
             <h5>Title: {{title}}</h5>
-            <p-editor [(ngModel)]="body" [readonly]="true" [style]="{'height':'320px'}">
-                <ng-template pTemplate="header">
-                </ng-template>
-            </p-editor>
+            <app-editor [body]="body" [readonly]="true"></app-editor>
         </div>
     </div>
 </div>

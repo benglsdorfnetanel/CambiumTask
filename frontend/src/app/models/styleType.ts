@@ -1,0 +1,1 @@
+export const defultStyle = {'height':'320px'};
